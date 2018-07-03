@@ -306,7 +306,7 @@ class HmmTagger:
 
                 # The viterbi entry at time t and state s is calculated multiplying
                 # the previous viterbi column for all the possible
-                # transition probability of state s and the likelihood of time t at state s
+                # transition probability of state s and the likelihood of the analyzed word with state s
                 viterbi[s][t] = np.max(viterbi[:, t-1] * self.tags_tags[:, s]) * b
                 back_pointer[s][t] = np.argmax(viterbi[:, t-1] * self.tags_tags[:, s])
 

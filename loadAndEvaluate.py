@@ -52,17 +52,17 @@ for i, sent in enumerate(sent_list_with_tags):
 
 print("Accuracy:", float(pos_scores)/num_tag)
 
-count_error_4_smoothing = 0.0
-
-count_error = 0.0
-
-for el in errors:
-    for index, word in enumerate(el[0]):
-        if el[1][index] != el[2][index]:
-            count_error += 1.0
-            if word not in tagger.words:
-                count_error_4_smoothing += 1.0
-
-print("Number of errors:", count_error)
-
-print("Unknown words errors percentage:", count_error_4_smoothing/len(errors)*100)
+# count_error_4_smoothing = 0.0
+#
+# count_error = 0.0
+#
+# for el in errors:
+#     for index, word in enumerate(el[0]):
+#         if el[1][index] != el[2][index]:
+#             count_error += 1.0
+#             if word not in tagger.words:
+#                 count_error_4_smoothing += 1.0
+#
+# print("Number of errors:", count_error)
+#
+# print("Unknown words errors percentage:", count_error_4_smoothing/len(errors)*100)

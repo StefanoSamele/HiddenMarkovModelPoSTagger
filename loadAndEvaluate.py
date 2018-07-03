@@ -19,7 +19,7 @@ predicted_pos_list = list(list())
 print("Starting prediction...")
 
 for sent in sent_list:
-    tag_seq = tagger.viterbi(len(sent), 17, sent)
+    tag_seq = tagger.viterbi(len(sent), sent)
     predicted_pos_list.append((tag_seq, sent))
 
 print("Prediction completed!")

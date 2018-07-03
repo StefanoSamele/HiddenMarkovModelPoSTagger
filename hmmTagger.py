@@ -223,7 +223,10 @@ class HmmTagger:
 
         print("HMM trained!")
 
-    def viterbi(self, T, N, sent):
+    def viterbi(self, T, sent):
+
+        # Fixed number of tags
+        N = 17
 
         # Create data structures
         back_pointer = np.zeros((N, T))

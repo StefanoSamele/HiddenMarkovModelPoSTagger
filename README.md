@@ -36,8 +36,13 @@ handling of unknown words. Here we follow what is presented in *A second-order H
 by Scott M. Thede and Mary P. Harper, published in *Proceedings of the 37th annual meeting of the Association for Computational Linguistics on Computational Linguistics*
 (pages 175-182). The main idea is to give a word a tag according to his suffix. By this term we simply mean the final sequence of characters of a word.
 
-We implemented this two steps solution inside the HmmTagger class; the two main methods are *train* and *viterbi*. 
+## Code
 
+We implemented this two steps solution inside the HmmTagger class; the two main methods are *train* and *viterbi*. 
+As already underlined the train method simply counts the occurrences inside the corpus of various types: couple of subsequent tags,
+suffixes-tags, words-tags, and so on. The viterbi method takes as input a sentence with T words, and assigns to each word a label,
+taken from the Universal Dependency Treebank PoS tag list. Note that, in the viterbi method we do not perform any lemmatization on the words of the
+sentence. This is because we only use the already available data sets, which contain already lemmatized sentences. 
 
 ## Results
 We achieved an accuracy of 0.96448 on the test set. 

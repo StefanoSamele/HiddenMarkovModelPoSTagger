@@ -4,7 +4,7 @@ PoS Tagger for Italian Language using Hidden Markov Model trained on an italian 
 
 ## Resources
 
-Inside the resources folder you can find the train, validation and test dataset. These three files are taken directly from
+Inside the resources folder you can find the train, validation and test data sets. These three files are taken directly from
 the link above; PoS (part of speech) tags are universal features used to distinguish lexical and grammatical properties of words.
 
 ## Utils
@@ -23,19 +23,20 @@ Main idea is that the probability of a word w_i to have a tag t_i (with i = 1...
 ```
 P(t_i|w_i)= P(w_i|t_i)P(t_i|t_i-1)
 ```
-where P(x|y) is the conditional probability of an event x given the event y.
+where P(w_i|t_i) is the probability of seeing the w_i given the tag t_i; P(t_i|t_i-1) is the probability of seeing a tag t at time i given the tag t_i-1 at the previous time. Of course,
+P(x|y) is the conditional probability of an event x given the event y.
 
-Given a word w, the problem is to find the tag which maximizes the above probability;
+Given a word w, the task is to find the tag which maximizes the above probability;
 the problem is addressed in two steps: 
 - Calculate all the possible probabilities;
 - Maximize the sequence of possible tags with a dynamic programming technique through the Viterbi Algorithm.
 
-The calculation of and is based on the simple count of the occurrences in the corpus. A well known issue is the 
+The calculation of  P(w_i|t_i) and P(t_i|t_i-1) is simply based on the count of the occurrences in the corpus. A well known issue is the 
 handling of unknown words. Here we follow what is presented in *A second-order Hidden Markov Model for part-of-speech tagging*, paragraph 2.2,
 by Scott M. Thede and Mary P. Harper, published in *Proceedings of the 37th annual meeting of the Association for Computational Linguistics on Computational Linguistics*
 (pages 175-182). The main idea is to give a word a tag according to his suffix. By this term we simply mean the final sequence of characters of a word.
 
-We implemented this algorithm inside the HmmTagger class; the two main methods are *train* and *viterbi*. 
+We implemented this two steps solution inside the HmmTagger class; the two main methods are *train* and *viterbi*. 
 
 
 ## Results

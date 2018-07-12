@@ -16,7 +16,7 @@ load and evaluation is contained in the *loadAndEvaluate.py* file.
 
 ## About HMM and PoS Tagging
 
-Hidden Markov Model is a classical formulation for a well known problem: given an input sequence of element (the output of a markov process) we would like
+Hidden Markov Model is a classical formulation for a well known problem: given an input sequence of elements (the output of a markov process) we would like
 to reconstruct the hidden states. In our case we would like to tag, i.e. assigning a specific label, to each word in a corpus from a pre-defined set of labels.
 Main idea is that the probability of a word w_i to have a tag t_i (with i = 1....n) is described as:
 
